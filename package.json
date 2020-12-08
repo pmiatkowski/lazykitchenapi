@@ -1,0 +1,61 @@
+{
+	"name": "lazykitchenapi",
+	"version": "1.0.0",
+	"description": "for wife's project",
+	"main": "index.js",
+	"scripts": {
+		"build": "env-cmd -e production node_modules/.bin/tsc",
+		"lint": "eslint . --ext .js,.ts -c .eslintrc.js --ignore-path .eslintignore",
+		"lint:fix": "npm run eslint -- --fix",
+		"start": "npm run watch",
+		"start:prod": "npm run build && nodemon ./server/index.js",
+		"watch": "env-cmd -e development tsc-watch --onSuccess \"node ./server/index.js\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pmiatkowski/lazykitchenapi.git"
+	},
+	"author": "Pawel Miatkowski",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/pmiatkowski/lazykitchenapi/issues"
+	},
+	"homepage": "https://github.com/pmiatkowski/lazykitchenapi#readme",
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint && npm run build -- --noEmit"
+		}
+	},
+	"devDependencies": {
+		"@types/body-parser": "^1.19.0",
+		"@types/cors": "^2.8.8",
+		"@types/express": "^4.17.8",
+		"@types/node": "^14.14.6",
+		"@typescript-eslint/eslint-plugin": "^4.6.1",
+		"@typescript-eslint/parser": "^4.6.1",
+		"axios": "^0.21.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-stage-0": "^6.24.1",
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"cross-env": "^7.0.2",
+		"env-cmd": "^10.1.0",
+		"express": "^4.17.1",
+		"https": "^1.0.0",
+		"nodemon": "^2.0.6",
+		"ts-node": "^9.0.0",
+		"tsc-watch": "^4.2.9",
+		"typescript": "^4.0.5"
+	},
+	"optionalDependencies": {
+		"eslint": "^7.13.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-sort-keys-fix": "^1.1.1",
+		"husky": "^4.3.0",
+		"prettier": "^2.1.2"
+	}
+}
