@@ -1,11 +1,18 @@
 {
 	"compilerOptions": {
+		"baseUrl": "./src",
 		"outDir": "./server",
 		"moduleResolution": "node",
 		"module": "CommonJS",
 		"allowJs": true,
 		"target": "ES6",
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"types": ["./typings"],
+		"paths": {
+			"@controllers/*": ["controllers/*"],
+			"@routes/*": ["routes/*"]
+		}
 	},
+
 	"include": ["./src/**/*", "./typings/**/*"]
 }
